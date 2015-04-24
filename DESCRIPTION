@@ -1,0 +1,8 @@
+Package: neRtools
+Title: Assorted R functions to aid extraction of named entities using OpenNLP
+Version: 0.1
+Authors@R: person("Taylor", "Spears", email="tcs@tcspears.net", role = c("aut", "cre"))
+Description: This package contains a set of functions that are designed to make extracting named entities from texts using the openNLP package for R a bit easier. 
+Depends: R (>= 3.1.2)
+License: MIT - see LICENSE
+LazyData: true
