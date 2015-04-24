@@ -11,6 +11,9 @@ nlp_engine(input, model.list)
 
 \item{model.list}{A model list, produced using load_nlp_models.}
 }
+\value{
+An annotated plaintext document for input.
+}
 \description{
 Builds an Annotated Plaintext Document from a character vector input.
 }
