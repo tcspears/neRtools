@@ -24,7 +24,7 @@ load_nlp_models <- function(entities){
       names(pipeline)[length(pipeline)] <- "POS"
     } else {
       pipeline[[length(pipeline)+1]] <- Maxent_Entity_Annotator(kind = entities[i])
-      names(pipeline)[length(pipeline)] <- "person"
+      names(pipeline)[length(pipeline)] <- entities[i]
     }
   }
   return(pipeline)
