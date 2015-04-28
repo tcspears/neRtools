@@ -22,9 +22,9 @@ install_github('neRtools','tcspears')
 Using `extract_entities` to extract individual sentences, words, parts of speech, and persons from a text input:
 
 ```
-models <- load_nlp_models(c("sentence","word","POS","person"))
+> models <- load_nlp_models(c("sentence","word","POS","person","organization","date","location"))
 
-input1 <- "Britain's economy slowed sharply in the first three months of 2015, a setback for Prime Minister
+> input1 <- "Britain's economy slowed sharply in the first three months of 2015, a setback for Prime Minister
 David Cameron who has staked his campaign for re-election next week on the strength of the recovery. 
 Economists said the weakness was likely to be a blip, with the economy still on course for another strong 
 year of growth."
