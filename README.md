@@ -23,22 +23,23 @@ Using `extract_entities` to extract individual sentences, words, parts of speech
 ```
 models <- load_nlp_models(c("sentence","word","POS","person"))
 
-input1 <- "Britain's economy slowed sharply in the first three months of 2015, 
-a setback for Prime Minister David Cameron who has staked his campaign for 
-re-election next week on the strength of the recovery."
+input1 <- "Britain's economy slowed sharply in the first three months of 2015, a setback for Prime Minister
+David Cameron who has staked his campaign for re-election next week on the strength of the recovery. 
+Economists said the weakness was likely to be a blip, with the economy still on course for another strong 
+year of growth."
 
 > extract_entities(input1,models)
-
 $sentence
-[1] "Britain's economy slowed sharply in the first three months of 2015, a setback 
-for Prime Minister David Cameron who has staked his campaign for re-election next 
-week on the strength of the recovery."
+[1] "Britain's economy slowed sharply in the first three months of 2015, a setback for Prime Minister David Cameron who has staked his campaign for re-election next week on the strength of the recovery."
+[2] "Economists said the weakness was likely to be a blip, with the economy still on course for another strong year of growth."                                                                            
 
 $word
 [1] "Britain"     "'s"          "economy"     "slowed"      "sharply"     "in"          "the"         "first"      
 [9] "three"       "months"      "of"          "2015"        ","           "a"           "setback"     "for"        
 [17] "Prime"       "Minister"    "David"       "Cameron"     "who"         "has"         "staked"      "his"        
 [25] "campaign"    "re-election" "next"        "week"        "on"          "strength"    "recovery"    "."          
+[33] "Economists"  "said"        "weakness"    "was"         "likely"      "to"          "be"          "blip"       
+[41] "with"        "still"       "course"      "another"     "strong"      "year"        "growth"     
 
 $POS
 $POS$NNP
@@ -48,28 +49,29 @@ $POS$POS
 [1] "'s"
 
 $POS$NN
-[1] "economy"     "setback"     "campaign"    "re-election" "week"        "strength"    "recovery"   
+[1] "economy"     "setback"     "campaign"    "re-election" "week"        "strength"    "recovery"    "weakness"   
+[9] "blip"        "course"      "year"        "growth"     
 
 $POS$VBD
-[1] "slowed"
+[1] "slowed" "said"   "was"   
 
 $POS$RB
-[1] "sharply"
+[1] "sharply" "still"  
 
 $POS$IN
-[1] "in"  "of"  "for" "on" 
+[1] "in"   "of"   "for"  "on"   "with"
 
 $POS$DT
-[1] "the" "a"  
+[1] "the"     "a"       "another"
 
 $POS$JJ
-[1] "first" "next" 
+[1] "first"  "next"   "likely" "strong"
 
 $POS$CD
 [1] "three" "2015" 
 
 $POS$NNS
-[1] "months"
+[1] "months"     "Economists"
 
 $POS$`,`
 character(0)
@@ -89,9 +91,24 @@ character(0)
 $POS$.
 character(0)
 
+$POS$TO
+[1] "to"
+
+$POS$VB
+[1] "be"
+
 
 $person
-[1] "David Cameron"
+[1] "David Cameron" "Economists"   
+
+$organization
+character(0)
+
+$date
+[1] "2015"      "next week"
+
+$location
+[1] "Britain"
 
 ```
 
