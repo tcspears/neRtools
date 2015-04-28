@@ -1,5 +1,93 @@
 # neRtools
-Assorted R functions to aid extraction of named entities using OpenNLP
+Assorted R functions to aid extraction of named entities using the Apache OpenNLP maximum entropy modelling framework.
 
 ## Description
-This package provides some R functions that are designed to make named entity identification/extraction using the Apache OpenNLP library a bit easier within R. As such, this package extends the existing functionality offered by the openNLP package available on CRAN.
+This package provides some R functions that are designed to make named entity identification/extraction using the Apache OpenNLP library a bit easier within R. As such, this package extends the existing functionality offered by Kurt Hornik's openNLP package that is available on CRAN.
+
+neRtools contains three principle functions that make the openNLP package easier to use within R:
+* `extract_entities()`: Given a text input, outputs a list of named entities identified in that text.
+* `entities_in_common()`: Given a pair of text inputs, finds a set of named entities that are common to both inputs.
+* `contains_entities()`: Determines whether a text input contains any entities of a pre-specified type, and reports those entities.
+
+## Installing
+This package requires Kurt Hornik's openNLP and NLP packages (available on CRAN), as well as a set of pre-trained maximum entropy models. Sample models are available from: http://datacube.wu.ac.at/.
+
+To install this package directly from github, use the `install_github()` function within the `devtools` package (available on CRAN):
+```
+install_github('neRtools','tcspears')
+```
+
+## Examples
+Using `extract_entities` to extract individual sentences, words, parts of speech, and persons from a text input:
+
+```
+models <- load_nlp_models(c("sentence","word","POS","person"))
+
+input1 <- "Britain's economy slowed sharply in the first three months of 2015, a setback for Prime Minister David Cameron who has staked his campaign for re-election next week on the strength of the recovery."
+
+> extract_entities(input1,models)
+
+$sentence
+[1] "Britain's economy slowed sharply in the first three months of 2015, a setback for Prime Minister David Cameron who has staked his campaign for re-election next week on the strength of the recovery."
+
+$word
+[1] "Britain"     "'s"          "economy"     "slowed"      "sharply"     "in"          "the"         "first"      
+[9] "three"       "months"      "of"          "2015"        ","           "a"           "setback"     "for"        
+[17] "Prime"       "Minister"    "David"       "Cameron"     "who"         "has"         "staked"      "his"        
+[25] "campaign"    "re-election" "next"        "week"        "on"          "strength"    "recovery"    "."          
+
+$POS
+$POS$NNP
+[1] "Britain"  "Prime"    "Minister" "David"    "Cameron" 
+
+$POS$POS
+[1] "'s"
+
+$POS$NN
+[1] "economy"     "setback"     "campaign"    "re-election" "week"        "strength"    "recovery"   
+
+$POS$VBD
+[1] "slowed"
+
+$POS$RB
+[1] "sharply"
+
+$POS$IN
+[1] "in"  "of"  "for" "on" 
+
+$POS$DT
+[1] "the" "a"  
+
+$POS$JJ
+[1] "first" "next" 
+
+$POS$CD
+[1] "three" "2015" 
+
+$POS$NNS
+[1] "months"
+
+$POS$`,`
+character(0)
+
+$POS$WP
+[1] "who"
+
+$POS$VBZ
+[1] "has"
+
+$POS$VBN
+[1] "staked"
+
+$POS$`PRP$`
+character(0)
+
+$POS$.
+character(0)
+
+
+$person
+[1] "David Cameron"
+
+```
+
