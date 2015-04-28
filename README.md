@@ -5,7 +5,8 @@ Assorted R functions to aid extraction of named entities using the Apache OpenNL
 This package provides some R functions that are designed to make named entity identification/extraction using the Apache OpenNLP library a bit easier within R. As such, this package extends the existing functionality offered by Kurt Hornik's openNLP package that is available on CRAN.
 
 neRtools contains three principle functions that make the openNLP package easier to use within R:
-* `extract_entities()`: Given a text input, outputs a list of named entities identified in that text.
+* `load_nlp_models()`: Given a character vector of entity types, loads a set of maximum entropy entity identification models for those entities using the openNLP package.
+* `extract_entities()`: Given a text input and a set of nlp models (defined by `load_nlp_models`), outputs a list of named entities identified in that text.
 * `entities_in_common()`: Given a pair of text inputs, finds a set of named entities that are common to both inputs.
 * `contains_entities()`: Determines whether a text input contains any entities of a pre-specified type, and reports those entities.
 
