@@ -23,12 +23,16 @@ Using `extract_entities` to extract individual sentences, words, parts of speech
 ```
 models <- load_nlp_models(c("sentence","word","POS","person"))
 
-input1 <- "Britain's economy slowed sharply in the first three months of 2015, a setback for Prime Minister David Cameron who has staked his campaign for re-election next week on the strength of the recovery."
+input1 <- "Britain's economy slowed sharply in the first three months of 2015, 
+a setback for Prime Minister David Cameron who has staked his campaign for 
+re-election next week on the strength of the recovery."
 
 > extract_entities(input1,models)
 
 $sentence
-[1] "Britain's economy slowed sharply in the first three months of 2015, a setback for Prime Minister David Cameron who has staked his campaign for re-election next week on the strength of the recovery."
+[1] "Britain's economy slowed sharply in the first three months of 2015, a setback 
+for Prime Minister David Cameron who has staked his campaign for re-election next 
+week on the strength of the recovery."
 
 $word
 [1] "Britain"     "'s"          "economy"     "slowed"      "sharply"     "in"          "the"         "first"      
