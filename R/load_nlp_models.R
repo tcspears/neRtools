@@ -8,7 +8,6 @@
 
 load_nlp_models <- function(entities){
   library("openNLP")
-  library("XML")
   library("NLP")
   
   pipeline <- list()
